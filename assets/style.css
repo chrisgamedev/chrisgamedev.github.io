@@ -12,7 +12,7 @@ body {
     background: black;
     color: white;
     font-family: "BodyFont";
-    width: 1000px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
     user-select: none;
