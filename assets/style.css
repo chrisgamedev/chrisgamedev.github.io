@@ -1,11 +1,11 @@
 @font-face {
     font-family: "TitleFont";
-    src: url('/fonts/FFFFORWA.TTF');
+    src: url('/assets//fonts/FFFFORWA.TTF');
 }
 
 @font-face {
     font-family: "BodyFont";
-    src: url('/fonts/Pixeled.ttf');
+    src: url('/assets//fonts/Pixeled.ttf');
 }
 
 body {
@@ -16,7 +16,7 @@ body {
     margin: 0 auto;
     text-align: center;
     user-select: none;
-    background: url("images/background_anim.gif");
+    background: url("/assets/images/background_anim.gif");
     background-size: 200px;
 }
 
