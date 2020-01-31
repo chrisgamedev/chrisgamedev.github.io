@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="assets/style.css">
     </head>
 
-    <button class="button2" onclick="Support()">?</button>
+    <button class="button2" onclick="window.location.href='https://timebenter.github.io/support/'">?</button>
     <body>
 
         <h1>Space Driftin'</h1>
@@ -20,7 +20,7 @@
         </div>
 
         <div style="margin-bottom: 30px;">
-            <button class="button" onclick="DetectAndServe()">DOWNLOAD</button>
+            <button class="button" onclick="DownloadLink()">DOWNLOAD</button>
         </div>
 
     </body>
@@ -35,18 +35,15 @@
             return "unknown";
         }
     
-        function DetectAndServe() {
+        function DownloadLink() {
             let os = getMobileOperatingSystem();
             if (os == "Android") {
                 window.location.href = "https://play.google.com/store/apps/details?id=com.timeBenter.SpaceDrift";
             } else if (os == "iOS") {
-                window.location.href = "http://www.example.com";
+                window.location.href = "https://apps.apple.com/us/app/space-driftin/id1496929618";
             } else {
-                window.location.href = "http://www.example.com";
+                window.location.href = "https://apps.apple.com/us/app/space-driftin/id1496929618";
             }
         }    
-        function Support() {
-            window.location.href = "https://timebenter.github.io/support/";
-        }
     </script>
 </html>
