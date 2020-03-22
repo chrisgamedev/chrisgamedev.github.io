@@ -22,8 +22,8 @@
         <img src="assets/images/animation.gif" style="width: 70%; height: 70%;">
 
         <div>
-            <img src="assets/images/ios.png" style="width: 40%; height: 40%; display: inline;">
-            <img src="assets/images/android.png" style="width: 40%; height: 40%; display: inline;">
+            <img src="assets/images/ios.png" style="width: 40%; height: 40%; display: inline;" onclick="ios()">
+            <img src="assets/images/android.png" style="width: 40%; height: 40%; display: inline;" onclick="android()">
         </div>
 
         <div style="margin-bottom: 30px;">
@@ -52,5 +52,13 @@
                 window.location.href = "https://apps.apple.com/us/app/space-driftin/id1496929618";
             }
         }    
+
+        function android() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.timeBenter.SpaceDrift";
+        }
+
+        function ios() {
+            window.location.href = "https://apps.apple.com/us/app/space-driftin/id1496929618";
+        }
     </script>
 </html>

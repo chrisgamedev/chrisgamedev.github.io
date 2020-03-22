@@ -82,3 +82,7 @@ p {
     text-align: center;
     transform: translate(-50%, 0);
 }
+
+img:hover {
+    cursor: pointer;
+}
