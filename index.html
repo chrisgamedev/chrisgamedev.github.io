@@ -1,64 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Space Driftin'</title>
+        <title>timeBenter</title>
 
         <meta charset="UTF-8">
-        <meta name="description" content="Space Driftin' A simple, addictively fun arcade game! Download for free now!">
-        <meta name="keywords" content="Space Driftin', timeBenter, Space Drift, Mobile, Arcade, Game, Addictive, Fun, Simple, iOS Game, Android Game">
+        <meta name="description" content="">
+        <meta name="keywords" content="timeBenter, Space Driftin', Magniflyer, Mobile, Mobile Game, Phone Game, Arcade, Game, Addictive, Fun, Simple, iOS Game, Android Game">
         <meta name="author" content="timeBenter">
-        <meta name="google-site-verification" content="t98Ly9Tn7Wdil88HrXceZbpGdhkmtlyC9IEMIigTp_Y" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="icon" href="assets/images/favicon.png">
         <link rel="stylesheet" type="text/css" href="assets/style.css">
     </head>
 
-    <button class="button2" onclick="window.location.href='https://timebenter.github.io/support/'">?</button>
     <body>
-
-        <h1>Space Driftin'</h1>
-        <p>A SPACE DRIFTIN' GAME<br><font color="gray">MADE BY CHRIS</p>
-        <img src="assets/images/animation.gif" style="width: 70%; height: 70%;">
-
-        <div>
-            <img src="assets/images/ios.png" style="width: 40%; height: 40%; display: inline;" onclick="ios()">
-            <img src="assets/images/android.png" style="width: 40%; height: 40%; display: inline;" onclick="android()">
+        <div class="header">
+            <h1>My Projects</h1>
         </div>
 
-        <div style="margin-bottom: 30px;">
-            <button class="button" onclick="DownloadLink()">DOWNLOAD</button>
+        <p>This website is a showcase of the games I have made. <br>All of them are made by me (Chris). </p>
+
+		<div class="row">
+			<div class="column"> <!--onclick="window.location.href='http://magniflyer.github.io/'">-->  
+                <img src="assets/images/magniflyer icon.png" class="column-img">
+                <div class="image-text">Coming Soon</div>
+
+				<div class="column-title">Magniflyer</div>
+			</div>
+			<div class="column" onclick="location.href='spacedriftin/index.html'">
+				<img src="assets/images/space driftin icon.png" class="column-img">
+				<div class="column-title">Space Driftin'</div>
+            </div>
         </div>
 
+        <br><br><br><br>
+        
+        <div class="footer" style="user-select: none;">
+            <p>                
+                <a href="https://www.reddit.com/user/timeBenter" class="fa fa-reddit"></a>
+                <a href="https://twitter.com/timeBenter" class="fa fa-twitter"></a>
+                <a href="mailto:timebenterdev@gmail.com?subject=Issue Report&body=Please provide a detailed report of your issue." class="fa fa-envelope"></a>
+            </p>
+        </div>
     </body>
-
-    <script>
-
-        function getMobileOperatingSystem() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            if (/windows phone/i.test(userAgent)) return "Windows Phone";
-            if (/android/i.test(userAgent)) return "Android";
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return "iOS";
-            return "unknown";
-        }
-    
-        function DownloadLink() {
-            let os = getMobileOperatingSystem();
-            if (os == "Android") {
-                window.location.href = "https://play.google.com/store/apps/details?id=com.timeBenter.SpaceDrift";
-            } else if (os == "iOS") {
-                window.location.href = "https://apps.apple.com/us/app/space-driftin/id1496929618";
-            } else {
-                window.location.href = "https://apps.apple.com/us/app/space-driftin/id1496929618";
-            }
-        }    
-
-        function android() {
-            window.location.href = "https://play.google.com/store/apps/details?id=com.timeBenter.SpaceDrift";
-        }
-
-        function ios() {
-            window.location.href = "https://apps.apple.com/us/app/space-driftin/id1496929618";
-        }
-    </script>
 </html>

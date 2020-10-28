@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "TitleFont";
+    src: url('../assets/fonts/FFFFORWA.TTF');
+}
+
+@font-face {
+    font-family: "BodyFont";
+    src: url('../assets/fonts/Pixeled.ttf');
+}
+
+body {
+    background: black;
+    color: white;
+    font-family: "BodyFont";
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    background: url("../assets/images/background_anim.gif");
+    background-size: 200px;
+}
+
+h1 {
+    font-family: "TitleFont";
+}
+
+.button {
+    width: 120px;
+    background: grey;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: "BodyFont";
+    color: white;
+    user-select: none;
+    font-size: 10px;
+    border: 1px white solid;
+    text-decoration: none;
+}
+
+.link-img {
+    width: 40%;
+    display: inline;
+    cursor: pointer;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: block;
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+.button:hover {
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+p {
+    font-size: 10px;
+}
+
+img {
+    user-select: none;
+}
+
+.top-corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding: 5px;
+    font-size: 30px;
+    text-decoration: none;
+}

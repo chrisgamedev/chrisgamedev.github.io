@@ -2,23 +2,9 @@
 <html>
     <head>
         <title>Space Driftin'</title>
-
-        <meta charset="UTF-8">
-        <meta name="description" content="Space Driftin' A simple, addictively fun arcade game! Download for free now!">
-        <meta name="keywords" content="Space Driftin', timeBenter, Space Drift, Mobile, Arcade, Game, Addictive, Fun, Simple, iOS Game, Android Game">
-        <meta name="author" content="timeBenter">
-        <meta name="google-site-verification" content="t98Ly9Tn7Wdil88HrXceZbpGdhkmtlyC9IEMIigTp_Y" />
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="../assets/images/favicon.png">
-        <link rel="stylesheet" type="text/css" href="../assets/style.css">
     </head>
 
-    <body>
-        <h1>Space Driftin'</h1>
-    </body>
-
-    <script defer>
+    <script>
 
         function getMobileOperatingSystem() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -28,18 +14,22 @@
             return "unknown";
         }
     
-        function DownloadLink() {
-            let os = getMobileOperatingSystem();
-            if (os == "Android") {
-                window.location.href = "https://play.google.com/store/apps/details?id=com.timeBenter.SpaceDrift";
-            } else if (os == "iOS") {
-                window.location.href = "https://apps.apple.com/us/app/space-driftin/id1496929618";
-            } else {
-                window.location.href = "https://apps.apple.com/us/app/space-driftin/id1496929618";
-            }
-        }  
+        function gotoDownloadLink() {
+            if (getMobileOperatingSystem() == "Android") 
+                android();
+            else
+                ios();
+        }    
 
-        DownloadLink();
+        function android() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.timeBenter.SpaceDrift";
+        }
+
+        function ios() {
+            window.location.href = "https://apps.apple.com/us/app/space-driftin/id1496929618";
+        }
+        
+        gotoDownloadLink();
         
     </script>
 </html>
