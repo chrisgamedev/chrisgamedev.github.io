@@ -108,7 +108,7 @@ br {
     color: black;
     font-family: "Icon";
     font-weight: bold;
-    font-size: 50px;
+    font-size: 150%;
     user-select: none;
-    padding: 5px;
+    padding: 1%;
 }
