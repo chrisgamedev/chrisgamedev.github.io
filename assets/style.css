@@ -112,3 +112,13 @@ br {
     user-select: none;
     padding: 1%;
 }
+
+.top-corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding: 25px;
+    font-size: 30px;
+    text-decoration: none;
+}
