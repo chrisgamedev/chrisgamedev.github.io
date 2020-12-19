@@ -96,7 +96,7 @@ br {
 .column {
     position: relative;
 }
-
+/* 
 .image-text {
     position: absolute;
     top: 50%;
@@ -111,7 +111,7 @@ br {
     font-size: 150%;
     user-select: none;
     padding: 1%;
-}
+} */
 
 .top-corner {
     position: absolute;
