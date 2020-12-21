@@ -1,0 +1,17 @@
+{
+"companyName": "timeBenter",
+"productName": "Magniflyer",
+"productVersion": "1.0",
+"dataUrl": "Web Magniflyer.data.unityweb",
+"wasmCodeUrl": "Web Magniflyer.wasm.code.unityweb",
+"wasmFrameworkUrl": "Web Magniflyer.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"backgroundUrl": "Web Magniflyer.jpg",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#FFFFFF",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.3.0b4"
+}
