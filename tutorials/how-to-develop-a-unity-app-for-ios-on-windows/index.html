@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Developing a Unity App for iOS on Windows</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="A complete step by step tutorial on what is required to develop for iOS on windows (without a mac).">
+        <meta name="author" content="timeBenter">
+        <meta name="keywords" content="Unity,iOS,Windows,tutorial,developer,Magniflyer,timeBenter,programming,Apple,develop,app,game,publish,ios upload">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- <link rel="icon" href="../assets/images/favicon.png"> -->
+        <link rel="stylesheet" type="text/css" href="assets/style.css">
+    </head>
+
+    <body>
+
+        <a class="top-corner fa fa-home" href="https://timebenter.github.io/"></a>
+
+        <div class="header">
+            <h1>How to develop a Unity App for iOS on Windows</h1>
+        </div>
+
+        <div style="width: 70%; margin: 0 auto; text-align: left;">
+
+            <p>
+                This is a concise tutorial on how to build and upload Unity made iOS apps to the Appstore on Windows. This tutorial does not require an Apple Mac.
+                <br><br>Date Created: Jan 2021
+            </p>
+
+            <h3>Requirements:</h3><hr>
+            <ul>
+                <li><a href="https://developer.apple.com/programs/enroll/">Apple Developer Account</a> -> Required to publish iOS apps</li>
+                <li><a href="https://unity3d.com/unity/features/cloud-build">Unity Cloud Build</a> -> Allows you to build and download .ipa files without Xcode</li>
+                <li><a href="https://www.openssl.org/source/">OpenSSL</a> -> Used to create the .p12 file REQUIRED to sign your app</li>
+            </ul>
+
+            <p>If you do NOT have ALL 3 of the above, you will not be able to proceed. <br>If you don't know what I'm talking about in any part of this tutorial, you should probably do some more research.</p>
+
+            <h3 id="finish-your-app">1. Finish your app</h3><hr>
+            <p>Just a quick self promo here, I finished my app <a href="https://timebenter.github.io/magniflyer/">Magniflyer</a> and if you feel like you need a break from programming, download my app and have some fun.</p>
+            <video width="40%" onclick="this.paused ? this.play() : this.pause();" autoplay loop muted>
+                <source src="../../magniflyer/assets/images/seamless.mp4">
+            </video>
+
+            <h3 id="creating-an-apple-provisioning-profile">2. Creating an Apple Provisioning Profile</h3><hr>
+            <p>A quick reminder that you need OpenSSL to do this step. I found <a href="https://medium.com/swlh/installing-openssl-on-windows-10-and-updating-path-80992e26f6a1">this tutorial</a> on how to install it pretty good.</p>
+
+            <h5>1) Create a key and Certificate Signing Request (CSR)</h5>
+            <p>To create the .key file, run the following command: </p>
+            <code>openssl genrsa -out YourApp.key 2048</code>
+            <p>To create the .certSigningRequest file (CSR), run the following command, replacing the filename, email and name details with yours (where AU is your <a href="https://countrycode.org/">country code</a>): </p>
+            <code>openssl req -new -key YourApp.key -out YourApp.certSigningRequest -subj "/emailAddress=you@yourdomain.com, CN=Your Name, C=AU"</code>
+            <p>I reccomend creating a folder to put the files you just made.</p>
+            <img src="assets/images/key file and certSigning file.PNG" style="width: 600px;">
+
+            <h5>2) Use that CSR on the Apple Developer Console to get a .cer certificate</h5>
+            <img src="assets/images/apple developer account.PNG" style="width: 200px;">
+            <p>Go to the <a href="https://developer.apple.com/account/resources/certificates/list">Apple Developer Console</a> and create a new certificate. Select the type of certificate that applies to you (if you don't know, do some research). After this step, it will ask for your CSR certificate, so make sure you know where it is saved. Finally, download the .cer file and add it to your folder.</p>
+            <img src="assets/images/certificates.PNG" style="width: 600px;">
+
+            <h5>3) Create an App ID for your app</h5>
+            <p>
+                Create an App ID for your app on the <a href="https://developer.apple.com/account/resources/identifiers/list">Apple Developer Console</a>.<br>
+                I reccomend using reverse domain style format (e.g: com.yourname.yourappname), for Magniflyer, I used "com.timeBenter.Magniflyer", however I recomend not using capitals. You will also need to set this as the bundle id in the Project Settings of your Unity Project.
+            </p>
+            <img src="assets/images/app id.PNG" style="width: 400px;">
+
+            <h5>3.5) Register a device (for Ad Hoc distribution only)</h5>
+            <p>If you chose an Ad Hoc distribution certificate, you must add your phone's id to the devices list. <a href="https://www.google.com/search?q=how+to+add+device+udid+apple">Here</a> is some useful info on how to do that.</p>
+
+            <h5>4) Use the .cer certificate to create a Provisioning Profile on the Apple Developer Console</h5>
+            <img src="assets/images/provisioning profiles.PNG" style="width: 400px;">
+            <p>Choose the profile you want, but you will only be able to add your certificate to this profile if they are the same type. Then choose the app id, and then choose the certificate you created. Name it, generate it and then download it, adding it to your little folder of files.</p>
+
+            <h5>5) Use the .cer certificate to create a .p12 certificate</h5>
+            <p>Only two things left todo! Use this command to create a .pem file from the .cer file</p>
+            <code>openssl x509 -in distribution.cer -inform DER -out YourApp.pem -outform PEM</code>
+            <p>Enter this command to create the .p12 certificate, it will require you to enter a password. Make sure you remember what that password is as well.</p>
+            <code>openssl pkcs12 -export -inkey YourApp.key -in YourApp.pem -out YourApp.p12</code>
+            <br><br><img src="assets/images/all signing files.PNG" style="width: 400px;">
+            <p>Finally, you have all the necessary files to proceed to the next step. If you want a better tutorial on how to do this, <a href="https://nintendoengineer.medium.com/creating-an-apple-provisioning-profile-and-a-p12-certificate-using-openssl-ebd443d3b8bb">this website</a> includes more images and is where I learnt how to do the steps above.</p>
+
+
+
+
+            <h3 id="setting-up-cloud-build">3. Setting up Cloud Build</h3><hr>
+            <p>To configure your iOS <a href="https://dashboard.unity3d.com/cloud-build">Cloud Build</a>, you need the following items:</p>
+            <ul>
+                <li>Your provisioning profile (.mobileprovision)</li>
+                <li>Your .p12 file</li>
+                <li>The password that you used to protect your .p12 file</li>
+            </ul>
+
+            <p>I am assuming you already have set up the source control for the Cloud Build's. If not, <a href="https://learn.unity.com/tutorial/unity-cloud-build">here</a> and <a href="https://www.youtube.com/watch?v=hg6NRJQwXIg">here</a> are links to help you out, or you can just find your own tutorial.</p>
+            <img src="assets/images/cloud build signing credentials.PNG" style="width: 350px;">
+            <p>Simply setup a new target in Unity Cloud Build and fill out the info, and then you should be good to start a build.</p>
+
+
+
+
+
+
+
+
+
+
+
+            <h3 id="uploading-the-build">4. Uploading the build</h3><hr>
+            <p>
+                Assuming the build was successful and you now have the .ipa file, you will need to upload the build to AppstoreConnect.<br><br>
+                To do this you will have to use a custom made tool called: <a href="https://github.com/simonnilsson/ios-uploader">ios-uploader</a>. I found this one the best as if you have Node.js you can use npm to install it and add it to your path, and then it is just one command to upload your build (see the github link for more details).
+                <img src="assets/images/ios uploader tool.PNG" style="width: 400px;">
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+            <h3 #id="success">5. Success</h3><hr>
+            <p>
+                Now, after a minute or two, your build should be showing in AppstoreConnect, whether it is for testflight or production.<br>
+                If you found this helpful, share it to other developers. If you had a problem along the way, just try searching for the answer before you ask anyone, 90% of the time, someone else has had the same problem and found the solution.<br><br>
+                
+                Also, if you want to check out my trippy game, Magniflyer, the game that helped me discover how to do all this, download it on <a href="https://apps.apple.com/us/app/magniflyer/id1535318648">iOS</a> or <a href="https://play.google.com/store/apps/details?id=com.timeBenter.Magniflyer">Android</a>.
+            </p>
+
+            <p style="text-align: center;"><u>Trailer</u></p>
+            <video width="20%" onclick="this.paused ? this.play() : this.pause();" autoplay muted>
+                <source src="../../magniflyer/videos/MagniflyerTrailer.mp4">
+            </video>
+
+            <p>timeBenter</p>
+
+            <br><br><br>
+
+        </div>
+        
+        <div class="footer" style="user-select: none;">
+            <p>                
+                <a href="https://twitter.com/timeBenter" class="fa fa-twitter"></a>
+            </p>
+        </div>
+    </body>
+</html>
+                   
