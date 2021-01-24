@@ -122,3 +122,8 @@ br {
     font-size: 30px;
     text-decoration: none;
 }
+
+a {
+    text-decoration: none;
+    color: rgb(65, 65, 255);
+}

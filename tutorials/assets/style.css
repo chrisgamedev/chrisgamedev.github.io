@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Default";
-    src: url("../../../assets/fonts/Lato-Regular.ttf");
+    src: url("../../assets/fonts/Lato-Regular.ttf");
 }
 
 * {
@@ -74,4 +74,17 @@ video {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.tutorial-section {
+    text-align: center;
+    background-color: grey;
+    border-radius: 5px;
+    padding: 5px;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.tutorial-section:hover {
+    cursor: pointer;
 }
