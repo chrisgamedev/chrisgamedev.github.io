@@ -76,8 +76,15 @@ p {
     <script src="js/main.js"></script>
 
     <script>
-        onload = () => {
-            init();
+
+        const isMobileDevice = /Mobi/i.test(window.navigator.userAgent)
+
+        if (!isMobileDevice) {
+            onload = () => {
+                init();
+            }
+        } else {
+            window.location.href = "../";
         }
     </script>
 </body>
