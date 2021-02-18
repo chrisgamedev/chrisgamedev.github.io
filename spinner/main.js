@@ -2,7 +2,7 @@ var canvas;
 var ctx;
 
 var circles = []
-var color = 0;
+var color = Math.random() * 255;
 var colorDir = 1;
 var keys = {}
 
@@ -38,7 +38,9 @@ class Circle {
         ctx.strokeStyle = this.color;
         ctx.lineWidth = this.ls;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0 + rot, Math.PI + rot);
+
+        // the rounding is because of some werid glitches that occur when there are too many decimals
+        ctx.arc(this.x, this.y, this.r, 0 + rot, Math.PI + Math.round(rot * 1000) / 1000);
         ctx.stroke();
     }
 
@@ -56,11 +58,12 @@ function init() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 20; i++) {
+        var spd = 3000 - (i * 10);
         if (i % 2 == 0)
-            circles.push(new Circle(i * 20, 20, "white", 600 - (i * 10)));
+            circles.push(new Circle(i * 20, 20, "white", spd));
         else
-            circles.push(new Circle(i * 20, 20, "red", 600 - (i * 10)));
+            circles.push(new Circle(i * 20, 20, "hsl(" + color + ", 100%, 50%)", spd));
     }
 
     addEventListener("resize", OnResize);
@@ -81,17 +84,21 @@ function render() {
 
     time.calculateDeltaTime();
 
+    // changing spd
     if (39 in keys)
         for (var c of circles)
-            c.spd *= 1.05;
+            if (c.spd < 1000000)
+                c.spd *= 1.05;
     if (37 in keys)
         for (var c of circles)
-            c.spd *= 0.95;
+            if (c.spd > 1000)
+                c.spd *= 0.95;
 
+    // changing colour
     if (32 in keys)
         for (var c of circles)
             if (c.color != "white") {
-                color += colorDir * time.delta;
+                color += colorDir * 100 * time.delta;
                 c.color = "hsl(" + color + ", 100%, 50%)"
                 if (color > 255)
                     colorDir = -colorDir;
