@@ -79,20 +79,25 @@ function OnResize() {
 }
 
 function render() {
-    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
     requestAnimationFrame(render);
+
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+    ctx.fillRect(0,0, canvas.clientWidth, canvas.clientHeight);
 
     time.calculateDeltaTime();
 
     // changing spd
-    if (39 in keys)
+    if (39 in keys) {
         for (var c of circles)
             if (c.spd < 1000000)
                 c.spd *= 1.05;
-    if (37 in keys)
+    }
+    if (37 in keys) {
         for (var c of circles)
             if (c.spd > 1000)
                 c.spd *= 0.95;
+    }
 
     // changing colour
     if (32 in keys)
