@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sabotage 3D</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="Sabotage 3D, Sabotage 3D is a ">
+        <meta name="keywords" content="Sabotage 3D, timeBenter, Mobile, Phone, iPhone, Game, Arcade, Addictive, Fun, Simple, iOS Game, Android Game">
+        <meta name="author" content="timeBenter">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../assets/images/sabotage 3D icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/style.css">
+    </head>
+
+    <img src="assets/images/background.png" class="backImg">
+
+    <body>
+
+        <a class="top-corner fa fa-home" href="../"></a>
+        
+        <div style="background: black; box-shadow: 0 0 4px 4px black">
+            <h1>Sabotage 3D</h1>
+            <p>IF IT GLOWS, IT NEEDS TO GO!</p><p style="color: rgb(148, 148, 148);">MADE BY CHRIS</p>
+        </div>
+
+        <div class="footer" style="user-select: none;">
+
+            <div>
+                <a href="https://apps.apple.com/us/app/sabotage-3d/id1568927846"><img src="assets/images/ios.png" class="link-img"></a>
+                <a href="https://play.google.com/store/apps/details?id=com.timebenter.scifisabotage"><img src="assets/images/android.png" class="link-img"></a>
+            </div>
+
+            <a class="download-btn" href="javascript:void(0);" onclick="gotoGamePage()">Download</a>
+        </div>
+
+    </body>
+
+    <script>
+        function getMobileOperatingSystem() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/windows phone/i.test(userAgent)) return "Windows Phone";
+            if (/android/i.test(userAgent)) return "Android";
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return "iOS";
+            return "unknown";
+        }
+
+        function gotoGamePage() {
+            if (getMobileOperatingSystem() == "Android")
+                window.location.href = "https://play.google.com/store/apps/details?id=com.timebenter.scifisabotage";
+            else
+                window.location.href = "https://apps.apple.com/us/app/sabotage-3d/id1568927846";      
+        }
+    </script>
+</html>

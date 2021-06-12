@@ -1,0 +1,104 @@
+@font-face {
+    font-family: "Default";
+    src: url('../assets/fonts/AreaKilometer50-ow3xB.ttf');
+}
+
+@font-face {
+    font-family: "Title";
+    src: url('../assets/fonts/Games.ttf');
+}
+
+.top-corner {
+    position:absolute;
+    top:0;
+    left:0;
+    color: white;
+    padding: 5px;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.backImg { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 90%;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+}
+
+body {
+    font-family: "Default";
+    background-color: black;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    /* background-image: url("../assets/images/background.png");
+    background-size: cover;
+    background-position: center center fixed;
+    background-repeat: no-repeat; */
+}
+
+h1 {
+    font-family: "Title";
+    color: white;
+    font-size: 35px;
+    font-weight: normal;
+}
+
+p {
+    color: white;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: block;
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+.link-img {
+    width: 40%; 
+    display: inline;
+}
+
+.link-img:hover {
+    cursor: pointer;
+}
+
+.download-btn {
+    background: white;
+    color: black;
+    font-size: 18px;
+    height: 61px;
+    line-height: 61px;
+    margin: 50px;
+    position: relative;
+    text-decoration: none;
+    padding: 15px;
+    width: 186px;
+    box-shadow: 0 0 0 4px #ffffff;
+}
+
+.download-btn:active {
+    box-shadow: 0 0 0 #ffffff;
+}
+
+img {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+a {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
