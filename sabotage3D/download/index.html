@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <script>
+
+        function getMobileOperatingSystem() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/windows phone/i.test(userAgent)) return "Windows Phone";
+            if (/android/i.test(userAgent)) return "Android";
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return "iOS";
+            return "unknown";
+        }
+    
+        function gotoGamePage() {
+            if (getMobileOperatingSystem() == "Android")
+                android();
+            if (getMobileOperatingSystem() == "iOS")         
+                ios();   
+            else
+                home();          
+        }
+
+        function home() {
+            window.location.href = "https://timebenter.github.io/sabotage3D/";
+        }
+
+        function android() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.timebenter.scifisabotage";
+        }
+
+        function ios() {
+            window.location.href = "https://apps.apple.com/us/app/sabotage-3d/id1568927846";
+        }
+
+        gotoGamePage();
+
+    </script>
+</html>
