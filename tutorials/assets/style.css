@@ -20,14 +20,6 @@ body {
     margin: 0;
 }
 
-code {
-    margin-left: 50px;
-    font-family: Consolas;
-    font-size: 11px;
-    background-color: rgb(57, 57, 57);
-    padding: 5px;
-}
-
 .header {
     padding: 1px;
     text-align: center;
@@ -57,7 +49,7 @@ code {
 }
 
 h3 {
-    color: #ff0000;
+    color: #ffffff;
 }
 
 h5 {
@@ -82,9 +74,31 @@ video {
     border-radius: 5px;
     padding: 5px;
     width: 75%;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .tutorial-section:hover {
     cursor: pointer;
+}
+
+code {
+    font-family: Consolas;
+    font-size: 11px;
+    background-color: rgb(57, 57, 57);
+    padding: 5px;
+}
+
+pre code {
+    background-color: rgb(68, 68, 68);
+    border: 1px solid #999;
+    display: block;
+    overflow-x: auto;
+
+}
+
+.files-button {
+    background: orange;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    margin: 50px 0;
 }

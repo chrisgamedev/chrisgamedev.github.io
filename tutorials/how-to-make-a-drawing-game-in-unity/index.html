@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Unity Drawing Game</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="A easy tutorial to make a efficient drawing mechanic in Unity">
+        <meta name="author" content="timeBenter">
+        <meta name="keywords" content="Unity,drawing,painting,game,tutorial,Path Of Patterns,timeBenter">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="stylesheet" type="text/css" href="../assets/style.css">
+    </head>
+
+    <body>
+
+        <a class="top-corner fa fa-chevron-circle-left" href="../"></a>
+
+        <div class="header">
+            <h1>How to make a drawing/painting game in Unity</h1>
+        </div>
+
+        <div style="width: 70%; margin: 0 auto; text-align: left;">
+
+            <p>
+                This is a tutorial on how to make a performant and flexible drawing mechanic in Unity.
+                <br><br>Date Created: Nov 2021
+            </p>
+
+            <h3 style="color: red;">Requirements:</h3><hr>
+            <ul>
+                <li>Basic knowledge about Unity's <a href="https://docs.unity3d.com/ScriptReference/RenderTexture.html">render textures</a>.</li>
+                <li>Basic knowledge on vector math.</li>
+            </ul>
+            <p>Do not worry if you don't full understand everything, the script will work if you set everything up correct.</p>
+            
+            <p style="color: orange; font-weight: bold;">NOTE: if you don't care about the tutorial, skip to the bottom and download the Unity Package as it will have it all setup for you.</p>
+
+
+            <h3>1. Drawing Code + Setup</h3><hr>
+
+            <pre><code>    public Texture2D brushTexture;
+    public Mesh brushMesh;
+    public Material brushMaterial;
+    public Color brushColor = new Color(1, 1, 1, 1);
+    public float brushScale = 1f;
+
+    RawImage rawImage;
+    RenderTexture renderTexture;
+
+    public Camera drawingCamera;
+
+    void Start()
+    {
+        rawImage = GetComponent&lt;RawImage&gt;();
+
+        brushTexture.wrapMode = TextureWrapMode.Clamp;
+        brushMaterial.mainTexture = brushTexture;
+
+        int width = (int)rawImage.rectTransform.rect.width;
+        int height = (int)rawImage.rectTransform.rect.height;
+
+        renderTexture = new RenderTexture(width, height, 1, RenderTextureFormat.ARGB32, 0);
+        rawImage.texture = renderTexture;
+
+        drawingCamera.targetTexture = renderTexture;
+    }
+
+    void DrawBrush(Vector2 position)
+    {
+        Matrix4x4 matrix = new Matrix4x4();
+        matrix.SetTRS(position, Quaternion.identity, Vector3.one * brushScale);
+        Graphics.DrawMesh(brushMesh, matrix, brushMaterial, 0, drawingCamera);
+    }            </code></pre>
+            <p>
+                This code setups up a render texture so that a brush texture can be drawn onto the screen using the DrawBrush function.
+                Now all we have to do is draw the brush at the mouse position.
+            </p>
+
+            <h3>Setup</h3>
+            <p>And use sprites default for the brush material.</p>
+            <img src="images/material.png" style="width: 600px;">
+            <p>Set clear flags on the drawing camera to "Don't clear".</p>
+            <img src="images/drawingcam.png" style="width: 600px;">
+            <p>Make sure to assign the correct references in the drawing script. You can use any brush texture. Make sure the brush mesh is a quad.</p>
+            <img src="images/rawimage.png" style="width: 600px;">
+            <p>I will have a Unity Package at the bottom of the tutorial with it all correctly setup for anyone who is lazy.</p>
+
+            <h3>2. Basic Mouse Drawing (Bad)</h3><hr>
+            <pre><code>    void Update()
+    {
+        Draw();
+    }
+
+    private void Draw()
+    {
+        if (!Input.GetMouseButton(0))
+            return;
+
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        brushMaterial.color = brushColor;
+        DrawBrush(mousePosition);
+    }            </code></pre>
+
+            <p>Even though this works, if the mouse moves too fast, there will be gaps in the drawing.</p>
+
+
+            <h3>3. Better Mouse Drawing (Good)</h3><hr>
+            <p>This method interpolates between the previous and current mouse positions and draws points in between, making the drawing look seamless.</p>
+            <pre><code>    void Update()
+    {
+        Draw();
+    }
+
+    Vector2 lastMousePosition;
+    private void Draw()
+    {
+        if (!Input.GetMouseButton(0))
+            return;
+
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetMouseButtonDown(0))
+            lastMousePosition = mousePosition;
+
+        brushMaterial.color = brushColor;
+        foreach (Vector2 point in GetPointsBetween(mousePosition, lastMousePosition))
+            DrawBrush(point);
+
+        lastMousePosition = mousePosition;
+    }
+
+    Vector2[] GetPointsBetween(Vector2 a, Vector2 b)
+    {
+        float spacing = 0.05f;
+        Vector2 dir = (b - a).normalized;
+        float dist = (b - a).magnitude;
+        int num = Mathf.RoundToInt(dist / spacing);
+
+        if (num == 0)
+            num = 1;
+
+        Vector2[] points = new Vector2[num];
+
+        for (int i = 0; i < num; i++)
+            points[i] = a + dir * i * spacing;
+
+        return points;
+    }</code></pre>
+            <p>In this code snippet, we must loop through each point returned by the GetPointsBetween and draw a brush at that point. To do this the last mouse position must be saved. The GetPointsBetween can be changed to increase the amount of points between by reducing the spacing variable.</p>
+
+            <p>Now you have everything you need to make a drawing game. Keep reading for more tips.</p>
+            
+
+            <h3>4. Clearing the Canvas</h3><hr>
+            <pre><code>    public void ClearCanvas()
+    {
+        RenderTexture screen = RenderTexture.active;
+        RenderTexture.active = renderTexture;
+        GL.Clear(true, true, Color.clear);
+        RenderTexture.active = screen;
+    }            </code></pre>
+            <p>To clear the canvas, just call this function. This function just swaps the active rendertexture, to the one with the drawing data, then clears the main camera and then swaps it back.</p>
+
+            <h3>5. What now?</h3><hr>
+            <p>The drawing method can be improved and added to if you want.</p>
+            <ul>
+                <li>Use <a href="https://docs.unity3d.com/ScriptReference/Graphics.DrawMeshInstanced.html">Graphics.DrawMeshInstanced</a> to increase the performance of the game (recommended).</li>
+                <li>Add a way to export the drawing. (Use something like <a href="https://docs.unity3d.com/ScriptReference/Texture2D.ReadPixels.html">texture.ReadPixels</a>)</li>
+            </ul>
+
+            <p>Also, I made a satisfying, symmetrical puzzle game using this mechanic, so I would appreciate if you could check it out.</p>
+            <a href="../../pathofpatterns/download/"><img src="../../assets/images/pathofpatterns icon.png" style="width: 300px;"></a>
+            <p><a href="../../pathofpatterns/download/">Download Path Of Patterns right here!</a> Also if you love it, leave a positive review. Thanks!</p>
+
+            <h3>6. Source Code / Unity Project</h3><hr><br>
+            <a class="files-button" href="DrawingTutorial.unitypackage" download="DrawingTutorial.unitypackage">Download Tutorial Unity Package</a>
+            <p>Here is a tutorial on <a href="https://docs.unity3d.com/Manual/AssetPackagesImport.html">how to import Unity Packages</a>.</p>
+
+            <p>Also, here is the full DrawingScript.</p>
+            <pre><code>using UnityEngine;
+using UnityEngine.UI;
+
+[RequireComponent(typeof(RawImage))]
+public class DrawingScript : MonoBehaviour
+{
+    public Texture2D brushTexture;
+    public Mesh brushMesh;
+    public Material brushMaterial;
+    public Color brushColor = new Color(1, 1, 1, 1);
+    public float brushScale = 1f;
+
+    RawImage rawImage;
+    RenderTexture renderTexture;
+
+    public Camera drawingCamera;
+
+    void Start()
+    {
+        rawImage = GetComponent&lt;RawImage&gt;();
+
+        brushTexture.wrapMode = TextureWrapMode.Clamp;
+        brushMaterial.mainTexture = brushTexture;
+
+        int width = (int)rawImage.rectTransform.rect.width;
+        int height = (int)rawImage.rectTransform.rect.height;
+
+        renderTexture = new RenderTexture(width, height, 1, RenderTextureFormat.ARGB32, 0);
+        rawImage.texture = renderTexture;
+
+        drawingCamera.targetTexture = renderTexture;
+    }
+
+    void Update()
+    {
+        Draw();
+    }
+
+    Vector2 lastMousePosition;
+    private void Draw()
+    {
+        if (!Input.GetMouseButton(0))
+            return;
+
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetMouseButtonDown(0))
+            lastMousePosition = mousePosition;
+
+        brushMaterial.color = brushColor;
+        foreach (Vector2 point in GetPointsBetween(mousePosition, lastMousePosition))
+            DrawBrush(point);
+
+        lastMousePosition = mousePosition;
+    }
+
+    void DrawBrush(Vector2 position)
+    {
+        Matrix4x4 matrix = new Matrix4x4();
+        matrix.SetTRS(position, Quaternion.identity, Vector3.one * brushScale);
+        Graphics.DrawMesh(brushMesh, matrix, brushMaterial, 0, drawingCamera);
+    }
+
+    Vector2[] GetPointsBetween(Vector2 a, Vector2 b)
+    {
+        float spacing = 0.05f;
+        Vector2 dir = (b - a).normalized;
+        float dist = (b - a).magnitude;
+        int num = Mathf.RoundToInt(dist / spacing);
+
+        if (num == 0)
+            num = 1;
+
+        Vector2[] points = new Vector2[num];
+
+        for (int i = 0; i &lt; num; i++)
+            points[i] = a + dir * i * spacing;
+
+        return points;
+    }
+
+    public void ClearCanvas()
+    {
+        RenderTexture screen = RenderTexture.active;
+        RenderTexture.active = renderTexture;
+        GL.Clear(true, true, Color.clear);
+        RenderTexture.active = screen;
+    }
+}            
+</code></pre>
+
+
+
+
+            <br><br><br>
+        </div>
+        
+        <div class="footer" style="user-select: none;">
+            <p>                
+                <a href="https://twitter.com/timeBenter" class="fa fa-twitter"></a>
+            </p>
+        </div>
+    </body>
+</html>

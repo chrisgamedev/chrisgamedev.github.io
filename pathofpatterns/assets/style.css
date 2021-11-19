@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "Default";
+    src: url('../assets/RajdhaniMedium-ppJd.ttf');
+}
+
+.top-corner {
+    position:absolute;
+    top:0;
+    left:0;
+    color: white;
+    padding: 5px;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+body {
+    font-family: "Default";
+    background: black;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.backImg { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 70%;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-family: "Default";
+    color: white;
+    font-size: 45px;
+    font-weight: normal;
+}
+
+
+p {
+    color: white;
+    margin-top: -20px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: block;
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+.link-img {
+    width: 40%; 
+    display: inline;
+}
+
+.link-img:hover {
+    cursor: pointer;
+}
+
+img {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+a {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
