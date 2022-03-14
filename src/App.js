@@ -54,7 +54,7 @@ export default function App() {
 	];
 
 	function MyRedirect(props) {
-		window.location.replace(props.url);
+		window.location.assign(props.url);
 		return null
 	}
 
