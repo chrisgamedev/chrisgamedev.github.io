@@ -1,0 +1,15 @@
+* {
+	color: white;
+}
+
+body {
+	text-align: center;
+	background-color: black;
+	position: relative;
+	min-height: 100vh;
+	padding-bottom: 100px;
+}
+
+a {
+	color: rgb(95, 95, 255);
+}
