@@ -24,8 +24,8 @@ export default class Projects extends Component {
 
                 <Row>
                     <Panel href="/spacedriftin" image={spacedrift} title={"Space Driftin'"}/>
-                    <Panel href="/rescuetheplanet" image={rescuetheplanet} title={"RescueThePlanet"}/>
-                    <Panel href="/javascript-raycaster" image={raycaster} title={"Raycaster"}/>
+                    <Panel href="https://chrisgamedev.github.io/rescuetheplanet/webversion/" image={rescuetheplanet} title={"RescueThePlanet"}/>
+                    <Panel href="https://chrisgamedev.github.io/javascript-raycaster/" image={raycaster} title={"Raycaster"}/>
                 </Row>
             </div>
         )

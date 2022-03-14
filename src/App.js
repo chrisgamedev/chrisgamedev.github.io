@@ -53,10 +53,10 @@ export default function App() {
 		}
 	];
 
-	function MyRedirect(props) {
-		window.location.assign(props.url);
-		return null
-	}
+	// function MyRedirect(props) {
+	// 	window.location.replace(props.url);
+	// 	return null
+	// }
 
 	return (
 		<Router>
@@ -97,21 +97,21 @@ export default function App() {
 					)
 				})}
 
-				<Route path="/javascript-raycaster" element={
+				{/* <Route path="/javascript-raycaster" element={
 					<MyRedirect url="https://chrisgamedev.github.io/javascript-raycaster/"/>
 				} />
 
 				<Route path="/rescuetheplanet" element={
 					<MyRedirect url="https://chrisgamedev.github.io/rescuetheplanet/webversion/"/>
-				} />
+				} /> */}
 
-				<Route path="/tutorials/how-to-develop-a-unity-app-for-ios-on-windows" element={
+				{/* <Route path="/tutorials/how-to-develop-a-unity-app-for-ios-on-windows" element={
 					<MyRedirect url="https://chrisgamedev.github.io/my-tutorials/how-to-develop-a-unity-app-for-ios-on-windows"/>
 				} />
 
 				<Route path="/tutorials/how-to-make-a-drawing-game-in-unity" element={
 					<MyRedirect url="https://chrisgamedev.github.io/my-tutorials/how-to-make-a-drawing-game-in-unity"/>
-				} />
+				} /> */}
 
 			</Routes>
 
