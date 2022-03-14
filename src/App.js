@@ -106,11 +106,11 @@ export default function App() {
 				} />
 
 				<Route path="/tutorials/how-to-develop-a-unity-app-for-ios-on-windows" element={
-					<MyRedirect url="https://chrisgamedev.github.io/tutorials/how-to-develop-a-unity-app-for-ios-on-windows"/>
+					<MyRedirect url="https://chrisgamedev.github.io/my-tutorials/how-to-develop-a-unity-app-for-ios-on-windows"/>
 				} />
 
 				<Route path="/tutorials/how-to-make-a-drawing-game-in-unity" element={
-					<MyRedirect url="https://chrisgamedev.github.io/tutorials/how-to-make-a-drawing-game-in-unity"/>
+					<MyRedirect url="https://chrisgamedev.github.io/my-tutorials/how-to-make-a-drawing-game-in-unity"/>
 				} />
 
 			</Routes>
