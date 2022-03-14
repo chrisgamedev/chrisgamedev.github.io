@@ -1,7 +1,7 @@
 import './App.css';
 import './fonts.css'
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import React, { Fragment } from 'react';
 
 import Navbar from './components/Navbar';
@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Showcase from './pages/Showcase';
 import Tutorials from './pages/Tutorials';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 export default function App() {
 	var appData = [
@@ -85,6 +86,14 @@ export default function App() {
 					</Fragment>
 				} />
 
+				<Route path="/privacy-policy" element={
+					<Fragment>
+						<Navbar />
+						<Title title={"Privacy Policy"}/>
+						<PrivacyPolicy />
+					</Fragment>
+				} />
+
 				{appData.map((data, i) => {
 					return (
 						<Route key={i} path={data.route} element={
@@ -96,6 +105,17 @@ export default function App() {
 						} />
 					)
 				})}
+
+
+				<Route path='*' element={
+					<Fragment>
+						<Navbar/>
+						<Title title={"Page Not Found"}/>
+						<p>The page you are trying to access does not exist.</p>
+						<Link to="/">Home</Link>
+					</Fragment>
+				}/>
+
 
 				{/* <Route path="/javascript-raycaster" element={
 					<MyRedirect url="https://chrisgamedev.github.io/javascript-raycaster/"/>
