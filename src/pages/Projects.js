@@ -9,6 +9,7 @@ import sabotage3d from '../images/sabotage3d.png'
 import spacedrift from '../images/spacedrift.png'
 import rescuetheplanet from '../images/rescuetheplanet.png'
 import raycaster from '../images/raycaster.png'
+import youtubetomp3 from '../images/youtube-to-mp3.png'
 
 export default class Projects extends Component {
     render() {
@@ -26,6 +27,10 @@ export default class Projects extends Component {
                     <Panel href="/spacedriftin" image={spacedrift} title={"Space Driftin'"}/>
                     <Panel href="https://chrisgamedev.github.io/rescuetheplanet/webversion/" image={rescuetheplanet} title={"RescueThePlanet"}/>
                     <Panel href="https://chrisgamedev.github.io/javascript-raycaster/" image={raycaster} title={"Raycaster"}/>
+                </Row>
+
+                <Row>
+                    <Panel href="https://github.com/chrisgamedev/multiple-youtube-links-to-mp3" image={youtubetomp3} title={"Youtube To Mp3"}/>
                 </Row>
             </div>
         )

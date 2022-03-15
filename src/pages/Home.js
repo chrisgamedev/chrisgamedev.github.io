@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 import Panel from '../components/Panel'
 import Row from '../components/Row'
@@ -16,6 +17,7 @@ export default class Home extends Component {
                 
                 <p>This website is a portfolio of all my projects and tutorials made by me (Chris).</p>
                 <p>Below is a list of all the apps I have developed and published on Google Play and the Appstore, ranked by my favourite to least favourite!</p>
+                <p>Also, check out my <Link to="/tutorials">tutorials</Link></p>
 
                 <Row>
                     <Panel href="/magniflyer" image={magniflyer} title={"Magniflyer"}/>
