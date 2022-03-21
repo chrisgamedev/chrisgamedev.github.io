@@ -86,13 +86,13 @@ export default function App() {
 					</Fragment>
 				} />
 
-				<Route path="/privacy-policy" element={
+				{/* <Route path="/privacy-policy" element={
 					<Fragment>
 						<Navbar />
 						<Title title={"Privacy Policy"}/>
 						<PrivacyPolicy />
 					</Fragment>
-				} />
+				} /> */}
 
 				{appData.map((data, i) => {
 					return (
