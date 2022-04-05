@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6845cbc2.css",
-    "main.js": "/static/js/main.36cb6665.js",
+    "main.css": "/static/css/main.95996a30.css",
+    "main.js": "/static/js/main.f7af6057.js",
     "static/media/magniflyer.gif": "/static/media/magniflyer.b6d02886979e0b37b229.gif",
     "static/media/rescuetheplanet.png": "/static/media/rescuetheplanet.165cc899546198443818.png",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
@@ -10,23 +10,25 @@
     "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
     "static/media/spacedrift.gif": "/static/media/spacedrift.e445f647b65c84473831.gif",
+    "static/media/pressurepop.png": "/static/media/pressurepop.c9faee170d4129b06671.png",
     "static/media/magniflyer.png": "/static/media/magniflyer.e1bf54f6af769f64359d.png",
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/pathofpatterns.png": "/static/media/pathofpatterns.47e62b005a581912bc9b.png",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "static/media/Pixeled.ttf": "/static/media/Pixeled.0466f3371bc9b28affef.ttf",
     "static/media/youtube-to-mp3.png": "/static/media/youtube-to-mp3.04dcb1d5059832bc2b48.png",
+    "static/media/ShareTech-Regular.ttf": "/static/media/ShareTech-Regular.5dd331bb180102bf623b.ttf",
     "static/media/android.png": "/static/media/android.39d2a7c8abd180f74b44.png",
     "static/media/raycaster.png": "/static/media/raycaster.ccc7af297a751c969c9b.png",
     "static/media/ios.png": "/static/media/ios.ac7a4158eee91e014708.png",
     "static/media/AreaKilometer50.ttf": "/static/media/AreaKilometer50.9b6fb3a4de79ec927c56.ttf",
     "static/media/Multicolore.otf": "/static/media/Multicolore.15018878e4085f6dc800.otf",
     "index.html": "/index.html",
-    "main.6845cbc2.css.map": "/static/css/main.6845cbc2.css.map",
-    "main.36cb6665.js.map": "/static/js/main.36cb6665.js.map"
+    "main.95996a30.css.map": "/static/css/main.95996a30.css.map",
+    "main.f7af6057.js.map": "/static/js/main.f7af6057.js.map"
   },
   "entrypoints": [
-    "static/css/main.6845cbc2.css",
-    "static/js/main.36cb6665.js"
+    "static/css/main.95996a30.css",
+    "static/js/main.f7af6057.js"
   ]
 }
