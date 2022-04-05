@@ -8,6 +8,7 @@ import magniflyer from '../images/magniflyer.png'
 import pathofpatterns from '../images/pathofpatterns.png'
 import sabotage3d from '../images/sabotage3d.png'
 import spacedrift from '../images/spacedrift.png'
+import pressurepop from '../images/pressurepop.png'
 
 export default class Home extends Component {
     render() {
@@ -23,7 +24,7 @@ export default class Home extends Component {
                     <Panel href="/magniflyer" image={magniflyer} title={"Magniflyer"}/>
                     <Panel href="/spacedriftin" image={spacedrift} title={"Space Driftin'"}/>
                     <Panel href="/pathofpatterns" image={pathofpatterns} title={"Path Of Patterns"}/>
-                    <Panel href="/sabotage3d" image={sabotage3d} title={"Sabotage 3D"}/>
+                    <Panel href="/pressurepop" image={pressurepop} title={"Pressure Pop"}/>
                 </Row>
 
                 <p>More projects to come!</p>

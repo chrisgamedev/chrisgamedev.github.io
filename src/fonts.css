@@ -17,3 +17,8 @@
     font-family: "spacedrift-font";
     src: url('./fonts/Pixeled.ttf');
 }
+
+@font-face {
+    font-family: "pressurepop-font";
+    src: url('./fonts/ShareTech-Regular.ttf');
+}

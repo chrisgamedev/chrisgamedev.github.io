@@ -6,6 +6,7 @@ import Row from '../components/Row'
 import magniflyer from '../images/magniflyer.png'
 import pathofpatterns from '../images/pathofpatterns.png'
 import sabotage3d from '../images/sabotage3d.png'
+import pressurepop from '../images/pressurepop.png'
 import spacedrift from '../images/spacedrift.png'
 import rescuetheplanet from '../images/rescuetheplanet.png'
 import raycaster from '../images/raycaster.png'
@@ -25,11 +26,12 @@ export default class Projects extends Component {
 
                 <Row>
                     <Panel href="/spacedriftin" image={spacedrift} title={"Space Driftin'"}/>
+                    <Panel href="/pressurepop" image={pressurepop} title={"Pressure Pop"}/>
                     <Panel href="https://chrisgamedev.github.io/rescuetheplanet/webversion/" image={rescuetheplanet} title={"RescueThePlanet"}/>
-                    <Panel href="https://chrisgamedev.github.io/javascript-raycaster/" image={raycaster} title={"Raycaster"}/>
                 </Row>
 
                 <Row>
+                    <Panel href="https://chrisgamedev.github.io/javascript-raycaster/" image={raycaster} title={"Raycaster"}/>
                     <Panel href="https://github.com/chrisgamedev/multiple-youtube-links-to-mp3" image={youtubetomp3} title={"Youtube To Mp3"}/>
                 </Row>
             </div>

@@ -51,6 +51,15 @@ export default function App() {
 			android: "https://play.google.com/store/apps/details?id=com.timebenter.scifisabotage",
 			image: require("./images/backgrounds/sabotage3d.png"),
 			font: "sabotage3d-font"
+		},
+		{
+			title: "Pressure Pop",
+			route: "/pressurepop",
+			caption: "Just press 'n' pop!",
+			ios: "https://apps.apple.com/us/app/pressure-pop/id1615889906",
+			android: "https://play.google.com/store/apps/details?id=com.timebenter.pressurepop",
+			image: require("./images/backgrounds/pressurepop.png"),
+			font: "pressurepop-font"
 		}
 	];
 
