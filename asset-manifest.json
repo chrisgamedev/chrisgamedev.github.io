@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.95996a30.css",
-    "main.js": "/static/js/main.f7af6057.js",
+    "main.css": "/static/css/main.82018138.css",
+    "main.js": "/static/js/main.898a309b.js",
     "static/media/magniflyer.gif": "/static/media/magniflyer.b6d02886979e0b37b229.gif",
     "static/media/rescuetheplanet.png": "/static/media/rescuetheplanet.165cc899546198443818.png",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
@@ -24,11 +24,11 @@
     "static/media/AreaKilometer50.ttf": "/static/media/AreaKilometer50.9b6fb3a4de79ec927c56.ttf",
     "static/media/Multicolore.otf": "/static/media/Multicolore.15018878e4085f6dc800.otf",
     "index.html": "/index.html",
-    "main.95996a30.css.map": "/static/css/main.95996a30.css.map",
-    "main.f7af6057.js.map": "/static/js/main.f7af6057.js.map"
+    "main.82018138.css.map": "/static/css/main.82018138.css.map",
+    "main.898a309b.js.map": "/static/js/main.898a309b.js.map"
   },
   "entrypoints": [
-    "static/css/main.95996a30.css",
-    "static/js/main.f7af6057.js"
+    "static/css/main.82018138.css",
+    "static/js/main.898a309b.js"
   ]
 }
