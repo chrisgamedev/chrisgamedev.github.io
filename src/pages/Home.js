@@ -28,7 +28,6 @@ export default class Home extends Component {
                 </Row>
 
                 <p>More projects to come!</p>
-                <p>Interested? Follow me on <a href="https://twitter.com/timeBenter">Twitter</a>.</p>
             </div>
         )
     }
