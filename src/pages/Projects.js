@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Panel from '../components/Panel'
+import CustomPanel from '../components/CustomPanel'
 import Row from '../components/Row'
 
 import magniflyer from '../images/magniflyer.png'
@@ -31,7 +32,7 @@ export default class Projects extends Component {
                 </Row>
 
                 <Row>
-                    <Panel href="https://chrisgamedev.github.io/javascript-raycaster/" image={raycaster} title={"Raycaster"}/>
+                    <CustomPanel href="https://chrisgamedev.github.io/javascript-raycaster/" image={raycaster} title={"Raycaster"}/>
                     {/* <Panel href="https://github.com/chrisgamedev/multiple-youtube-links-to-mp3" image={youtubetomp3} title={"Youtube To Mp3"}/> */}
                 </Row>
             </div>
