@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.82018138.css",
-    "main.js": "/static/js/main.48bac1f1.js",
+    "main.js": "/static/js/main.4c3bc90e.js",
     "static/media/magniflyer.gif": "/static/media/magniflyer.b6d02886979e0b37b229.gif",
     "static/media/rescuetheplanet.png": "/static/media/rescuetheplanet.165cc899546198443818.png",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
@@ -25,10 +25,10 @@
     "static/media/Multicolore.otf": "/static/media/Multicolore.15018878e4085f6dc800.otf",
     "index.html": "/index.html",
     "main.82018138.css.map": "/static/css/main.82018138.css.map",
-    "main.48bac1f1.js.map": "/static/js/main.48bac1f1.js.map"
+    "main.4c3bc90e.js.map": "/static/js/main.4c3bc90e.js.map"
   },
   "entrypoints": [
     "static/css/main.82018138.css",
-    "static/js/main.48bac1f1.js"
+    "static/js/main.4c3bc90e.js"
   ]
 }
